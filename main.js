@@ -14,11 +14,9 @@ const winningConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ]
-
 let round = 0
 
 const game = (e) => {
-
     console.log(e.target.classList.value);
     if (e.target.classList.value !== "play x" && e.target.classList.value !== "play o") {
         e.target.classList.add(round % 2 === 0 ? "x" : "o")
@@ -33,7 +31,7 @@ const game = (e) => {
                     plays[ele[j]].style.background = "lime"
                 }
                 win.style.color = "lime"
-                win.innerHTML = "Player 1 won!"
+                win.innerHTML = "🎉🎉 Player 1 won!"
                 return
             }
             if (gameBoard[ele[0]] === "o" && gameBoard[ele[1]] === "o" && gameBoard[ele[2]] === "o") {
@@ -44,27 +42,19 @@ const game = (e) => {
                     plays[ele[j]].style.background = "tomato"
                 }
                 win.style.color = "tomato"
-                win.innerHTML = "Player 2 won!"
+                win.innerHTML = "🎉🎉 Player 2 won!"
                 return
             }
         })
         if (round === 8) {
-            console.log("Game Over. No Winner");
+
+            win.innerHTML = "Game Over. No Winner 😔"
         }
-
-
         round++
-
         player.innerHTML = (round % 2) + 1
     }
-
     console.log(gameBoard);
-
-
-
-
 }
-
 for (let i = 0; i < plays.length; i++) {
     plays[i].addEventListener('click', game)
 }
