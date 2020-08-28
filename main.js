@@ -28,13 +28,24 @@ const game = (e) => {
                 for (let i = 0; i < plays.length; i++) {
                     plays[i].removeEventListener('click', game)
                 }
-                return win.innerHTML = "Player 1 won!"
+                console.log(ele);
+                for (let j = 0; j < ele.length; j++) {
+                    plays[ele[j]].style.background = "lime"
+                }
+                win.style.color = "lime"
+                win.innerHTML = "Player 1 won!"
+                return
             }
             if (gameBoard[ele[0]] === "o" && gameBoard[ele[1]] === "o" && gameBoard[ele[2]] === "o") {
                 for (let i = 0; i < plays.length; i++) {
                     plays[i].removeEventListener('click', game)
                 }
-                return win.innerHTML = "Player 2 won!"
+                for (let j = 0; j < ele.length; j++) {
+                    plays[ele[j]].style.background = "tomato"
+                }
+                win.style.color = "tomato"
+                win.innerHTML = "Player 2 won!"
+                return
             }
         })
         if (round === 8) {
